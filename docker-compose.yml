@@ -94,7 +94,6 @@ services:
     entrypoint: ["redis-server", "/etc/redis.conf"]
     networks:
       - default
-    
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -115,6 +114,30 @@ services:
     environment:
       - REDIS_1_HOST=redis
       - REDIS_1_PORT=6379
+
+  # zookeeper
+  zookeeper:
+    image: zookeeper:${ZOOKEEPER_VERSION}
+    restart: always
+    ports:
+        - "${ZOOKEEPER_HOST_PORT}:2181"
+    container_name: ${ZOOKEEPER_NAME}
+    # 集群使用
+    # environment:
+    #   ZOO_MY_ID: 1
+    #   ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+
+  # zookeeper web ui
+  zoowebui:
+    image: tobilg/zookeeper-webui
+    ports:
+      - "${ZOOWEBUI_PORT}:8080"
+    environment:
+      HTTP_PORT: 8080
+      USER: admin
+      PASSWORD: admin
+      ZK_DEFAULT_NODE: zookeeper:2181
+    
 
 networks:
   default:

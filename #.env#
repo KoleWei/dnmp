@@ -1,7 +1,7 @@
 ################################################
 ###       environment config file            ###
 ################################################
-SOURCE_DIR=/Users/kole/work/self/self/blog/wordpress
+SOURCE_DIR=../backcode
 
 
 ############# Container source.list ############
@@ -45,7 +45,7 @@ PHP54_FPM_CONF_FILE=./conf/php-fpm.conf
 
 
 #################### MySQL #####################
-MYSQL_VERSION=5.7
+MYSQL_VERSION=8.0.13
 MYSQL_HOST_PORT=3306
 MYSQL_ROOT_PASSWORD=123456
 MYSQL_DATA_DIR=./mysql
@@ -64,16 +64,3 @@ PHPMYADMIN_HOST_PORT=8080
 
 ################# redisMyAdmin #################
 REDISMYADMIN_HOST_PORT=8081
-
-
-################## zookeeper ###################
-ZOOKEEPER_VERSION=3.4
-ZOOKEEPER_HOST_PORT=2181
-ZOOKEEPER_NAME=zoo1
-
-
-################## zoowebui ###################
-ZOOWEBUI_PORT=2180
-
-
-
