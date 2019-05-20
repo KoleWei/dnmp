@@ -137,6 +137,16 @@ services:
       USER: admin
       PASSWORD: admin
       ZK_DEFAULT_NODE: zookeeper:2181
+
+  # mq
+  # RabbitMQ
+  rabbitmq:
+    image: hub.c.163.com/library/rabbitmq:${RABBITMQ_VERSION}
+    ports:
+      - "${RABBITMQ_PORT}:15672"
+    environment:
+        RABBITMQ_DEFAULT_USER: user
+        RABBITMQ_DEFAULT_PASS: 123456 
     
 
 networks:
